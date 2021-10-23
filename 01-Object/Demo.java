@@ -24,14 +24,14 @@ public class Demo{
     Point P2 = new Point(2,2);
     Point P3 = new Point(0,5);
     Point P4 = new Point(12,0);
-    Point P6 = new Point(0,-3);
+    Point P5 = new Point(0,-3);
     Point P6 = new Point(-4,0);
 
     System.out.println(distance(P1,P2));
     System.out.println(distance(P3,P4));
     System.out.println(distance(P5,P6));
     System.out.println(distance(P6,P5));
-    System.out.println(distance(P3,P6)); 
+    System.out.println(distance(P3,P6));
 
     //System.out.println(  Point.distance(P1,P2)); //call 2
     //System.out.println(  P1.distanceTo(P2)); //call 3
