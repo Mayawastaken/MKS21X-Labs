@@ -27,7 +27,12 @@ public class Demo{
     Point P6 = new Point(0,-3);
     Point P6 = new Point(-4,0);
 
-    System.out.println(  distance(P1,P2)); //call1
+    System.out.println(distance(P1,P2));
+    System.out.println(distance(P3,P4));
+    System.out.println(distance(P5,P6));
+    System.out.println(distance(P6,P5));
+    System.out.println(distance(P3,P6)); 
+
     //System.out.println(  Point.distance(P1,P2)); //call 2
     //System.out.println(  P1.distanceTo(P2)); //call 3
     //This one is IMPLIED strongly. You cannot tell by the calling style alone,
