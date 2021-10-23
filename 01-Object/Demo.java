@@ -31,9 +31,13 @@ public class Demo{
     System.out.println(distance(P3,P4));
     System.out.println(distance(P5,P6));
     System.out.println(distance(P6,P5));
-    System.out.println(distance(P3,P6));
-
-    //System.out.println(  Point.distance(P1,P2)); //call 2
+    System.out.println(distance(P3,P5));
+    System.out.println(" ");
+    System.out.println(Point.distance(P1,P2));
+    System.out.println(Point.distance(P3,P4));
+    System.out.println(Point.distance(P5,P6));
+    System.out.println(Point.distance(P6,P5));
+    System.out.println(Point.distance(P3,P5));
     //System.out.println(  P1.distanceTo(P2)); //call 3
     //This one is IMPLIED strongly. You cannot tell by the calling style alone,
     //but you can make an educated guess.

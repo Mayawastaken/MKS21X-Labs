@@ -14,4 +14,13 @@ public class Point{
   public double getY(){
     return y;
   }
+
+  public static double distance(Point one, Point two){
+    double x1 = one.getX();
+    double y1 = one.getY();
+    double x2 = two.getX();
+    double y2 = two.getY();
+    return Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
+
+  }
 }
