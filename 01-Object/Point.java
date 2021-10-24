@@ -21,6 +21,13 @@ public class Point{
     double x2 = two.getX();
     double y2 = two.getY();
     return Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
+  }
 
+  public double distanceTo(Point two){
+    double x1 = x;
+    double y1 = y;
+    double x2 = two.getX();
+    double y2 = two.getY();
+    return Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
   }
 }

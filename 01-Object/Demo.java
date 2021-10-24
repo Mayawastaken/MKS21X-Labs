@@ -9,7 +9,6 @@ Be sure to commit REGULARLY as you go. Commiting once at the end is not acceptab
 Be sure to add test cases to your main and verify the output. */
 
 public class Demo{
-  /* more methods can go here*/
   public static double distance(Point one, Point two){
     double x1 = one.getX();
     double y1 = one.getY();
@@ -38,8 +37,11 @@ public class Demo{
     System.out.println(Point.distance(P5,P6));
     System.out.println(Point.distance(P6,P5));
     System.out.println(Point.distance(P3,P5));
-    //System.out.println(  P1.distanceTo(P2)); //call 3
-    //This one is IMPLIED strongly. You cannot tell by the calling style alone,
-    //but you can make an educated guess.
+    System.out.println(" ");
+    System.out.println(P1.distanceTo(P2));
+    System.out.println(P3.distanceTo(P4));
+    System.out.println(P5.distanceTo(P6));
+    System.out.println(P6.distanceTo(P5));
+    System.out.println(P3.distanceTo(P5));
   }
  }
