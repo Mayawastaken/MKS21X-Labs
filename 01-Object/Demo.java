@@ -43,5 +43,12 @@ public class Demo{
     System.out.println(P5.distanceTo(P6));
     System.out.println(P6.distanceTo(P5));
     System.out.println(P3.distanceTo(P5));
+    System.out.println(" ");
+    System.out.println(P1.toString());
+    System.out.println(P2.toString());
+    System.out.println(P3.toString());
+    System.out.println(P4.toString());
+    System.out.println(P5.toString());
+    System.out.println(P6.toString());
   }
  }
