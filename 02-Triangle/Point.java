@@ -39,7 +39,7 @@ public class Point{
     if (a == 0 && b == 0) {
       return true;
     }
-    else if (a == 0 || b = 0) {
+    else if (a == 0 || b == 0) {
       return false;
     }
     return (((Math.abs(a - b)/a) * 100) <= .001);

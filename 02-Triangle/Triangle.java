@@ -65,7 +65,7 @@ public class Triangle {
     if (a == 0 && b == 0) {
       return true;
     }
-    else if (a == 0 || b = 0) {
+    else if (a == 0 || b == 0) {
       return false;
     }
     return (((Math.abs(a - b)/a) * 100) <= .001);
@@ -73,6 +73,27 @@ public class Triangle {
 
   public boolean equals(Triangle other){
     return((other.getVertex(1)).equals(v1) && (other.getVertex(2)).equals(v3) && (other.getVertex(3)).equals(v3));
+  }
+
+  public String classify(){
+    if (closeEnough(v1.distanceTo(v2), v1.distanceTo(v3)) && closeEnough(v1.distanceTo(v2), v2.distanceTo(v3))){
+      return "equilateral";
+    }
+    else if (closeEnough(v1.distanceTo(v2), v1.distanceTo(v3)) || closeEnough(v1.distanceTo(v2), v2.distanceTo(v3)) || closeEnough(v1.distanceTo(v3), v2.distanceTo(v3))){
+      return "isosceles";
+    }
+    else {
+      return "scalene";
+    }
+  }
+
+  public double area(){
+    double a = v1.distanceTo(v2);
+    double b = v2.distanceTo(v3);
+    double c = v3.distanceTo(v1);
+    double s = (a + b + c) / 2;
+    return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+
 
   }
 }
