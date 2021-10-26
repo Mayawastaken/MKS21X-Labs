@@ -35,4 +35,8 @@ public class Point{
     return "(" + x + ", " + y + ")";
   }
 
+  public static boolean closeEnough(double a, double b){
+    return (((Math.abs(a - b)/a) * 100) <= .001);
+  }
+
 }

@@ -60,4 +60,8 @@ public class Triangle {
     double d3 = v2.distanceTo(v3);
     return d1 + d2 + d3;
   }
+
+  public static boolean closeEnough(double a, double b){
+    return (((Math.abs(a - b)/a) * 100) <= .001);
+  }
 }
