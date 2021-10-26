@@ -62,6 +62,12 @@ public class Triangle {
   }
 
   public static boolean closeEnough(double a, double b){
+    if (a == 0 && b == 0) {
+      return true;
+    }
+    else if (a == 0 || b = 0) {
+      return false;
+    }
     return (((Math.abs(a - b)/a) * 100) <= .001);
   }
 }
