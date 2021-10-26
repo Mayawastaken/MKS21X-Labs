@@ -53,4 +53,11 @@ public class Triangle {
     String pt3 = v3.toString();
     return "{" + pt1 + ", " + pt2 + ", " + pt3 + "}";
   }
+
+  public double getPerimeter(){
+    double d1 = v1.distanceTo(v2);
+    double d2 = v1.distanceTo(v3);
+    double d3 = v2.distanceTo(v3);
+    return d1 + d2 + d3;
+  }
 }
