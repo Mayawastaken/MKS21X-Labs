@@ -9,6 +9,7 @@ public class Demo{
   }
 
   public static void main(String[]args){
+    //strictly Point related
     Point P1 = new Point(1,1);
     Point P2 = new Point(2,2);
     Point P3 = new Point(0,5);
@@ -33,5 +34,22 @@ public class Demo{
     System.out.println(P5.distanceTo(P6));
     System.out.println(P6.distanceTo(P5));
     System.out.println(P3.distanceTo(P5));
+    System.out.println(" ");
+
+    //Triangle related
+    Triangle T1 = new Triangle((0,0), P3, P4);
+    Triangle T2 = new Triangle((0,0), P5, P6);
+    Triangle T3 = new Triangle((1,1), (2,1), (1,2));
+    Triangle T4 = new Triangle((-2,-3), (-2,2), (10,-3));
+    Triangle T5 = new Triangle(0, 0, 0, 3, 4, 0);
+    Triangle T6 = new Triangle(0, 0, -6, 0, 0, -8);
+
+
+    System.out.println("Triangle stuff:");
+    System.out.println(" ");
+
+
+
+
   }
  }
