@@ -7,6 +7,13 @@ public class Triangle {
     v3 = z;
   }
 
+  public Triangle(double x1, double y1, double x2, double y2, double x3, double y3){
+    Point x = new Point(x1, y1);
+    Point y = new Point(x2, y2);
+    Point z = new Point(x3, y3);
+    Triangle(x, y, z);
+    
+  }
   public Triangle(Triangle t){
     v1 = t.v1;
     v2 = t.v2;
