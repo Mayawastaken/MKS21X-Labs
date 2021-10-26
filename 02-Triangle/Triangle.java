@@ -46,4 +46,11 @@ public class Triangle {
       v3 = p;
     }
   }
+
+  public String toString(){
+    String pt1 = v1.toString();
+    String pt2 = v2.toString();
+    String pt3 = v3.toString();
+    return "{" + pt1 + ", " + pt2 + ", " + pt3 + "}";
+  }
 }
