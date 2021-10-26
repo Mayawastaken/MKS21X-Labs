@@ -44,4 +44,9 @@ public class Point{
     }
     return (((Math.abs(a - b)/a) * 100) <= .001);
   }
+
+  public boolean equals(Point other){
+    return (closeEnough(x, other.getX()) && closeEnough(y, other.getY()));
+  }
+
 }
