@@ -70,4 +70,9 @@ public class Triangle {
     }
     return (((Math.abs(a - b)/a) * 100) <= .001);
   }
+
+  public boolean equals(Triangle other){
+    return((other.getVertex(1)).equals(v1) && (other.getVertex(2)).equals(v3) && (other.getVertex(3)).equals(v3));
+
+  }
 }
