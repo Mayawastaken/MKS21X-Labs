@@ -42,7 +42,7 @@ public class Point{
     else if (a == 0 || b == 0) {
       return false;
     }
-    return (((Math.abs(a - b)/a) * 100) <= .001);
+    return (Math.abs((a - b)/a * 100) <= .001);
   }
 
   public boolean equals(Point other){

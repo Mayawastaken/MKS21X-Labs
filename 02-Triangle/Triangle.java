@@ -72,7 +72,7 @@ public class Triangle {
   }
 
   public boolean equals(Triangle other){
-    return((other.getVertex(1)).equals(v1) && (other.getVertex(2)).equals(v3) && (other.getVertex(3)).equals(v3));
+    return((other.getVertex(1)).equals(v1) && (other.getVertex(2)).equals(v2) && (other.getVertex(3)).equals(v3));
   }
 
   public String classify(){
@@ -92,7 +92,7 @@ public class Triangle {
     double b = v2.distanceTo(v3);
     double c = v3.distanceTo(v1);
     double s = (a + b + c) / 2;
-    return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+    return Math.sqrt(Math.abs(s*(s-a)*(s-b)*(s-c)));
 
 
   }
