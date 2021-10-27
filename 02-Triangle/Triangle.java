@@ -72,6 +72,9 @@ public class Triangle {
   }
 
   public boolean equals(Triangle other){
+    if (other == null) {
+      return false;
+    }
     return((other.getVertex(1)).equals(v1) && (other.getVertex(2)).equals(v2) && (other.getVertex(3)).equals(v3));
   }
 
