@@ -10,6 +10,14 @@ public class Testyay{
     RationalNumber R8 = new RationalNumber(-8,24);
     RationalNumber R9 = new RationalNumber(-65,-5);
     RationalNumber R10 = new RationalNumber(12345,0);
+    RealNumber Re1 = new RealNumber(5);
+    RealNumber Re2 = new RealNumber(0);
+    RealNumber Re3 = new RealNumber(3.1415);
+    RealNumber Re4 = new RealNumber(-26);
+    RealNumber Re5 = new RealNumber(-5);
+    RealNumber Re6 = new RealNumber(8);
+
+
 
     System.out.println(R1.getValue()); // 0.5
     System.out.println(R2.getValue()); // 0.5
@@ -32,7 +40,7 @@ public class Testyay{
     System.out.println(R10.toString()); // 0/1
     System.out.println(" ");
     System.out.println(R1.reciprocal()); // 2/1
-    System.out.println(R8.reciprocal()); // 24/-8
+    System.out.println(R8.reciprocal()); // 24/-8 = -8/24
     System.out.println(R10.reciprocal()); // 0/1, because R10 becomes 1/0 which is thus 0/1
     System.out.println(" ");
     System.out.println((R1.reciprocal()).getValue()); // 2.0
@@ -40,7 +48,7 @@ public class Testyay{
     System.out.println((R10.reciprocal()).getValue()); // 0.0
     System.out.println(" ");
     System.out.println(R6.equals(R7)); // true
-    System.out.println(R1.equals(R2)); // false
+    System.out.println(R1.equals(R2)); // false, as the numerators and denominators aren't the same
     System.out.println(R3.equals(R3)); // true
     System.out.println(" ");
     /* System.out.println(RationalNumber.gcd(16, 32)); I made gcd public to test
@@ -81,6 +89,30 @@ public class Testyay{
     System.out.println(R1.subtract(R10)); // 1/2
     System.out.println(R5.subtract(R8)); // 1/-6 = -1/6
     System.out.println(R9.subtract(R1)); // 25/2
+    System.out.println(" ");
+    System.out.println(Re1.multiply(Re2)); // 0.0
+    System.out.println(Re1.multiply(Re3)); // 15.7075...
+    System.out.println(Re6.multiply(Re5)); // -40.0
+    System.out.println(Re4.multiply(R1)); // -13.0
+    System.out.println(Re2.multiply(R10)); // 0.0
+    System.out.println(" ");
+    System.out.println(Re1.divide(Re2)); // 0.0
+    System.out.println(Re1.divide(Re3)); // 1.59...
+    System.out.println(Re2.divide(Re3)); // 0.0
+    System.out.println(Re6.divide(R5)); // -16.0
+    System.out.println(Re1.divide(R10)); // 0.0
+    System.out.println(" ");
+    System.out.println(Re1.add(Re2)); // 5.0
+    System.out.println(Re1.add(Re3)); // 8.1415
+    System.out.println(Re1.add(Re5)); // 0.0
+    System.out.println(Re4.add(R9)); // -13.0
+    System.out.println(Re6.add(Re5)); // 3.0
+    System.out.println(" ");
+    System.out.println(Re1.subtract(Re2)); // 5.0
+    System.out.println(Re1.subtract(Re3)); // 1.8585
+    System.out.println(Re2.subtract(Re3)); // -3.1415
+    System.out.println(Re6.subtract(R10)); // 8.0
+    System.out.println(Re1.subtract(R5)); // 5.5
 
   }
 }

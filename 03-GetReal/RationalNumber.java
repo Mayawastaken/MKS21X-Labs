@@ -47,6 +47,10 @@ public class RationalNumber extends RealNumber
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
+    //My take on the phrasing of the instructions for this function
+    //is to take the raw nume & deno, thus yeilding 1/2 to not be
+    //equal to 2/4, etc. (if one wanted, they could first reduce
+    //their rational numbers before checking)
     return ((numerator == other.getNumerator()) && (denominator == other.getDenominator()));
   }
 
