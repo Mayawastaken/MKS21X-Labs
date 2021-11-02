@@ -64,10 +64,16 @@ public class RationalNumber extends RealNumber
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
+    while (!(a == 0)){
+      int intermediate = a;
+      a = (b % a);
+      b = intermediate;
+    }
+    return b;
+  }
+
     /*use euclids method or a better one*/
     //http://sites.math.rutgers.edu/~greenfie/gs2004/euclid.html
-    return 0;
-  }
 
   /**
   *Divide the numerator and denominator by the GCD
@@ -75,14 +81,20 @@ public class RationalNumber extends RealNumber
   *reduced after construction.
   */
   private void reduce(){
-
+    int intermediate = numerator;
+    numerator /= gcd(numerator, denominator);
+    denominator /= gcd(intermediate, denominator);
   }
   /******************Operations Return a new RationalNumber!!!!****************/
   /**
   *Return a new RationalNumber that is the product of this and the other
   */
   public RationalNumber multiply(RationalNumber other){
-    return null;
+    int mNume = other.getNumerator() * numerator;
+    int mDeno = other.getDenominator() * denominator;
+    RationalNumber mult = new RationalNumber(mNume, mDeno);
+    mult.reduce();
+    return mult;
   }
 
   /**
@@ -96,7 +108,13 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the sum of this and the other
   */
   public RationalNumber add(RationalNumber other){
-    return null;
+    int lcmDeno = (other.getDenominator() * denominator) / gcd(other.getDenominator(), denominator);
+    int factorForOther = lcmDeno / other.getDenominator();
+    int factorForNotOther = lcmDeno / denominator;
+    int aNume = factorForOther * other.getNumerator() + factorForNotOther * numerator;
+    RationalNumber ad = new RationalNumber(aNume, lcmDeno);
+    ad.reduce();
+    return ad;
   }
   /**
   *Return a new RationalNumber that this minus the other

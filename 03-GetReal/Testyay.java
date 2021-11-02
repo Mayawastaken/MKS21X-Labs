@@ -43,6 +43,29 @@ public class Testyay{
     System.out.println(R1.equals(R2)); // false
     System.out.println(R3.equals(R3)); // true
     System.out.println(" ");
+    /* System.out.println(RationalNumber.gcd(16, 32)); I made gcd public to test
+    System.out.println(RationalNumber.gcd(-16, 32));   these on my own, they work
+    System.out.println(RationalNumber.gcd(10, 15));
+    System.out.println(RationalNumber.gcd(48, 72));
+    System.out.println(RationalNumber.gcd(-6, -9));
+    System.out.println(RationalNumber.gcd(67, 98));
+    System.out.println(RationalNumber.gcd(-67, 98)); */
+    System.out.println(R1.multiply(R2)); // 1/4
+    System.out.println(R1.multiply(R3)); // 1/4
+    System.out.println(R2.multiply(R3)); // 1/4
+    System.out.println(R6.multiply(R7)); // 49/64
+    System.out.println(R1.multiply(R10)); // 0/1
+    System.out.println(R5.multiply(R8)); // 1/6
+    System.out.println(R9.multiply(R1)); // 13/2
+    System.out.println(" ");
+    System.out.println(R1.add(R2)); // 1/1
+    System.out.println(R1.add(R3)); // 1/1
+    System.out.println(R2.add(R3)); // 1/1
+    System.out.println(R6.add(R7)); // 7/4
+    System.out.println(R1.add(R10)); // 1/2
+    System.out.println(R5.add(R8)); // -5/6
+    System.out.println(R9.add(R1)); // 27/2
+
 
   }
 }

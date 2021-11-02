@@ -9,11 +9,11 @@ public class RealNumber{
   *Return the sum of this and the other
   */
   public double add(RealNumber other){
-    return value + other;
+    //return value + other;
      //other can be ANY RealNumber, including a RationalNumber
 
      //or other subclasses of RealNumber (that aren't written yet)
-
+     return 0;
   }
 
   /*
