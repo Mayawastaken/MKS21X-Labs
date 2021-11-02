@@ -101,7 +101,12 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that is the this divided by the other
   */
   public RationalNumber divide(RationalNumber other){
-    return null;
+    int dNume = other.getDenominator() * numerator;
+    int dDeno = other.getNumerator() * denominator;
+    RationalNumber div = new RationalNumber(dNume, dDeno);
+    div.reduce();
+    return div;
+
   }
 
   /**
@@ -120,6 +125,12 @@ public class RationalNumber extends RealNumber
   *Return a new RationalNumber that this minus the other
   */
   public RationalNumber subtract(RationalNumber other){
-    return null;
+    int lcmDeno = (other.getDenominator() * denominator) / gcd(other.getDenominator(), denominator);
+    int factorForOther = lcmDeno / other.getDenominator();
+    int factorForNotOther = lcmDeno / denominator;
+    int sNume = factorForNotOther * numerator - factorForOther * other.getNumerator();
+    RationalNumber sub = new RationalNumber(sNume, lcmDeno);
+    sub.reduce();
+    return sub;
   }
 }

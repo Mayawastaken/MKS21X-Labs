@@ -58,6 +58,14 @@ public class Testyay{
     System.out.println(R5.multiply(R8)); // 1/6
     System.out.println(R9.multiply(R1)); // 13/2
     System.out.println(" ");
+    System.out.println(R1.divide(R2)); // 1/1
+    System.out.println(R1.divide(R3)); // 1/1
+    System.out.println(R2.divide(R3)); // 1/1
+    System.out.println(R6.divide(R7)); // 1/1
+    System.out.println(R1.divide(R10)); // 0/1
+    System.out.println(R5.divide(R8)); // 3/2
+    System.out.println(R9.divide(R1)); // 26/1
+    System.out.println(" ");
     System.out.println(R1.add(R2)); // 1/1
     System.out.println(R1.add(R3)); // 1/1
     System.out.println(R2.add(R3)); // 1/1
@@ -65,7 +73,14 @@ public class Testyay{
     System.out.println(R1.add(R10)); // 1/2
     System.out.println(R5.add(R8)); // -5/6
     System.out.println(R9.add(R1)); // 27/2
-
+    System.out.println(" ");
+    System.out.println(R1.subtract(R2)); // 0/1
+    System.out.println(R1.subtract(R3)); // 0/1
+    System.out.println(R2.subtract(R3)); // 0/1
+    System.out.println(R6.subtract(R7)); // 0/1
+    System.out.println(R1.subtract(R10)); // 1/2
+    System.out.println(R5.subtract(R8)); // 1/-6 = -1/6
+    System.out.println(R9.subtract(R1)); // 25/2
 
   }
 }
