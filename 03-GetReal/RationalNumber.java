@@ -20,34 +20,34 @@ public class RationalNumber extends RealNumber
   }
 
   public double getValue(){
-    return (nume * 1.0 / deno * 1.0);
+    return (numerator * 1.0 / denominator * 1.0);
   }
 
   /**
   *@return the numerator
   */
   public int getNumerator(){
-    return nume;
+    return numerator;
   }
   /**
   *@return the denominator
   */
   public int getDenominator(){
-    return deno;
+    return denominator;
   }
   /**
   *@return a new RationalNumber that has the same numerator
   *and denominator as this RationalNumber but reversed.
   */
   public RationalNumber reciprocal(){
-    RationalNumber recip = new RationalNumber(deno, nume);
+    RationalNumber recip = new RationalNumber(denominator, numerator);
     return recip;
   }
   /**
   *@return true when the RationalNumbers have the same numerators and denominators, false otherwise.
   */
   public boolean equals(RationalNumber other){
-    return return ((nume == other.getNumerator()) && (deno == other.getDenominator()));
+    return ((numerator == other.getNumerator()) && (denominator == other.getDenominator()));
   }
 
 
@@ -55,7 +55,7 @@ public class RationalNumber extends RealNumber
   *@return the value expressed as "3/4" or "8/3"
   */
   public String toString(){
-    return (nume + "/" + deno);
+    return (numerator + "/" + denominator);
   }
 
   /**Calculate the GCD of two integers.
