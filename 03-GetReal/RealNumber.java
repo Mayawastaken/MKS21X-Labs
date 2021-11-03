@@ -41,13 +41,17 @@ public class RealNumber{
 
   public int compareTo(RealNumber other){
     double diff = this.getValue() - other.getValue();
-    if ((0 < diff && diff < 1) || ( -1 < 0 && diff < 0)){
-      if (0 < diff && diff < 1){
-        return 1;
-      }
-      return -1;
+    if (diff == 0){
+      return 0;
     }
-    return (int) diff;
+    if (diff > 0){
+      return 1;
+    }
+    return -1;
+  }
+
+  public boolean equals(RealNumber other){
+    return (this.getValue() == other.getValue());
   }
 
   public double getValue(){

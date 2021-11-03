@@ -40,7 +40,7 @@ public class Testyay{
     System.out.println(R10.toString()); // 0/1
     System.out.println(" ");
     System.out.println(R1.reciprocal()); // 2/1
-    System.out.println(R8.reciprocal()); // 24/-8 = -8/24
+    System.out.println(R8.reciprocal()); // 24/-8 = -24/8
     System.out.println(R10.reciprocal()); // 0/1, because R10 becomes 1/0 which is thus 0/1
     System.out.println(" ");
     System.out.println((R1.reciprocal()).getValue()); // 2.0
@@ -50,6 +50,7 @@ public class Testyay{
     System.out.println(R6.equals(R7)); // true
     System.out.println(R1.equals(R2)); // true
     System.out.println(R3.equals(R3)); // true
+    System.out.println(R3.equals(R4)); // false
     System.out.println(" ");
     /* System.out.println(RationalNumber.gcd(16, 32)); I made gcd public to test
     System.out.println(RationalNumber.gcd(-16, 32));   these on my own, they work
@@ -113,6 +114,19 @@ public class Testyay{
     System.out.println(Re2.subtract(Re3)); // -3.1415
     System.out.println(Re6.subtract(R10)); // 8.0
     System.out.println(Re1.subtract(R5)); // 5.5
-
+    System.out.println(" ");
+    System.out.println(Re1.compareTo(Re2)); // 1 (positive)
+    System.out.println(Re1.compareTo(Re3)); // 1 (positive)
+    System.out.println(Re2.compareTo(Re3)); // -1 (negative)
+    System.out.println(Re6.compareTo(R10)); // 1 (positive)
+    System.out.println(Re2.compareTo(Re2)); // 0 (equal)
+    System.out.println(Re2.compareTo(R10)); // 0 (equal)
+    System.out.println(" ");
+    System.out.println(Re1.equals(Re2)); // false
+    System.out.println(Re1.equals(Re3)); // false
+    System.out.println(Re2.equals(Re3)); // false
+    System.out.println(Re6.equals(R10)); // false
+    System.out.println(Re2.equals(Re2)); // true
+    System.out.println(Re2.equals(R10)); // true
   }
 }
