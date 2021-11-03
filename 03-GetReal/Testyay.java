@@ -48,7 +48,7 @@ public class Testyay{
     System.out.println((R10.reciprocal()).getValue()); // 0.0
     System.out.println(" ");
     System.out.println(R6.equals(R7)); // true
-    System.out.println(R1.equals(R2)); // false, as the numerators and denominators aren't the same
+    System.out.println(R1.equals(R2)); // true
     System.out.println(R3.equals(R3)); // true
     System.out.println(" ");
     /* System.out.println(RationalNumber.gcd(16, 32)); I made gcd public to test

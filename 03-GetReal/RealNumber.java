@@ -39,6 +39,16 @@ public class RealNumber{
     return value - other.getValue();
   }
 
+  public int compareTo(RealNumber other){
+    double diff = this.getValue() - other.getValue();
+    if ((0 < diff && diff < 1) || ( -1 < 0 && diff < 0)){
+      if (0 < diff && diff < 1){
+        return 1;
+      }
+      return -1;
+    }
+    return (int) diff;
+  }
 
   public double getValue(){
     return value;
