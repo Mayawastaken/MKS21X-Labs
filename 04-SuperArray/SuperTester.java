@@ -11,5 +11,21 @@ public class SuperTester{
     SA.add("works!");
     System.out.println(SA.toString());
     System.out.println(SA.toStringDebug());
+
+    for (int i = 0; i < SA.size(); i++){
+      System.out.println(SA.get(i));
+    }
+    for (int i = 0; i <= SA.size(); i++){
+      System.out.println(SA.get(i));
+    }
+
+    for (int i = 0; i < SA.size(); i++){
+      SA.set(i, "" + i);
+    }
+
+    System.out.println(SA.toString());
+    System.out.println(SA.toStringDebug());
+
+
   }
 }
