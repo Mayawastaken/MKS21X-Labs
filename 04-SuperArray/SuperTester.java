@@ -10,6 +10,6 @@ public class SuperTester{
     SA.add("it");
     SA.add("works!");
     System.out.println(SA.toString());
-
+    System.out.println(SA.toStringDebug());
   }
 }
