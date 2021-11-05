@@ -26,6 +26,16 @@ public class SuperTester{
     System.out.println(SA.toString());
     System.out.println(SA.toStringDebug());
 
+    for (int i = 0; i < SA.size(); i++){
+      if (i < SA.size() - 1){
+        SA.set(i, SA.get(i+1));
+      }
+      else {
+        SA.set(i, "NOPE!");
+      }
+    }
 
+    System.out.println(SA.toString());
+    System.out.println(SA.toStringDebug());
   }
 }
