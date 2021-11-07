@@ -7,6 +7,11 @@ public class SuperArray{
     data = new String[10];
   }
 
+  public SuperArray(int initialCapacity){
+    size = 0;
+    data = new String[initialCapacity];
+  }
+
   public String toString(){
     String str = "[";
     for (int i = 0; i < size; i++){
@@ -41,7 +46,20 @@ public class SuperArray{
     return size;
   }
 
+  private void resize(){
+    int newSize = size * 2 + 1;
+    SuperArray newAr = new SuperArray(newSize);
+    for (int i = 0; i < size; i++){
+      newAr.data[i] = data[i];
+    }
+    data = newAr.data;
+    size = newAr.size;
+  }
+
   public boolean add(String str){
+    if (size == data.length){
+      this.resize();
+    }
     data[size] = str;
     size++;
     return true;
@@ -76,4 +94,6 @@ public class SuperArray{
     data[index] = element;
     return buhbye;
   }
+
+
 }
