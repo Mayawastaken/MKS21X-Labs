@@ -47,13 +47,11 @@ public class SuperArray{
   }
 
   private void resize(){
-    int newSize = size * 2 + 1;
-    SuperArray newAr = new SuperArray(newSize);
+    String[] newAr = new String[data.length * 2 + 1];
     for (int i = 0; i < size; i++){
-      newAr.data[i] = data[i];
+      newAr[i] = data[i];
     }
-    data = newAr.data;
-    size = newAr.size;
+    data = newAr;
   }
 
   public boolean add(String str){
@@ -96,4 +94,42 @@ public class SuperArray{
   }
 
 
+  public int indexOf(String target){
+    for (int i = 0; i < size; i++){
+      if (data[i].equals(target)){
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public int lastIndexOf(String target){
+    for (int i = size - 1; i >= 0; i--){
+      if (data[i].equals(target)){
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public void add(int index, String value){
+    if (index < 0 || index > size) {
+      System.out.println("error in add: index out of range");
+    }
+    else if (size == data.length){
+      this.resize(); //gotta fix this to align w like the new data sljfslkdfj maybe put the chhecker before adding the last index
+    }
+    if (index >= 0 && index <= size){
+      String[] newData = new String[data.length];
+      for (int i = 0; i < index; i++){
+        newData[i] = data[i];
+      }
+      newData[index] = value;
+      for (int i = index; i < size + 1; i++){
+        newData[i+1] = data[i];
+      }
+      data = newData;
+      size++;
+    }
+  }
 }

@@ -43,6 +43,7 @@ public class SuperTester{
     for (int i = 0; i < SA.size(); i++){
       if (i < SA.size() - 1){
         SA.set(i, SA.get(i+1));
+    System.out.println(SA2.toStringDebug());
       }
       else {
         SA.set(i, "NOPE!");
@@ -66,8 +67,23 @@ public class SuperTester{
     System.out.println(SA2.toStringDebug()); // [cat, fish, dog, parrot]
     System.out.println(" ");
     SA2.add("lizard");
-    System.out.println(SA2.toString()); // UMM !!!! have no idea what is occuring; will fix in school
+    SA2.add("lizard");
+    System.out.println(SA2.toString()); //
     System.out.println(SA2.toStringDebug()); // "
+    System.out.println(" ");
+    System.out.println(SA2.indexOf("lizard")); // 4
+    System.out.println(SA2.indexOf("parrot")); // 3
+    System.out.println(SA2.indexOf("kangaroo")); // -1
+    System.out.println(" ");
+    System.out.println(SA2.lastIndexOf("lizard")); // 5
+    System.out.println(SA2.lastIndexOf("cat")); // 0
+    System.out.println(SA2.lastIndexOf("snake")); // -1
+    SA2.add(0, "kangaroo");
+    System.out.println(SA2.toStringDebug()); //
+    SA2.add(7, "lizard");
+    System.out.println(SA2.toStringDebug()); //
+    SA2.add(2, "snake");
+    System.out.println(SA2.toStringDebug()); //
 
   }
 }
