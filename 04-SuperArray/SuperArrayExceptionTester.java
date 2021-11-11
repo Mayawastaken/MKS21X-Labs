@@ -91,10 +91,5 @@ public class SuperArrayExceptionTester{
       System.out.println(testNum+". PASS "+testName);
     }
 
-    //BE CAREFUL! Which exception is expected?
-
-
-
-
   }
 }

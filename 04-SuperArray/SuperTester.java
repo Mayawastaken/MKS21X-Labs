@@ -30,7 +30,7 @@ public class SuperTester{
     System.out.println(" ");
 
     for (int i = 0; i < SA.size(); i++){
-      SA.set(i, "" + i); // *sets the elements to their index value*
+      SA.set(i, "" + i);
     }
 
     System.out.println(" ");
@@ -43,7 +43,6 @@ public class SuperTester{
     for (int i = 0; i < SA.size(); i++){
       if (i < SA.size() - 1){
         SA.set(i, SA.get(i+1));
-    System.out.println(SA2.toStringDebug());
       }
       else {
         SA.set(i, "NOPE!");
@@ -52,7 +51,7 @@ public class SuperTester{
 
     System.out.println(" ");
 
-    System.out.println(SA.toString()); // [0, 1, 2, NOPE!]
+    System.out.println(SA.toString()); // [1, 2, 3, NOPE!]
     System.out.println(SA.toStringDebug()); // [1, 2, 3, NOPE!, null, null, null, null, null, null]
 
     System.out.println(" ");
@@ -68,8 +67,8 @@ public class SuperTester{
     System.out.println(" ");
     SA2.add("lizard");
     SA2.add("lizard");
-    System.out.println(SA2.toString()); //
-    System.out.println(SA2.toStringDebug()); // 
+    System.out.println(SA2.toString()); // [cat, fish, dog, parrot, lizard, lizard]
+    System.out.println(SA2.toStringDebug()); // [cat, fish, dog, parrot, lizard, lizard, null, null, null]
     System.out.println(" ");
     System.out.println(SA2.indexOf("lizard")); // 4
     System.out.println(SA2.indexOf("parrot")); // 3
@@ -79,14 +78,14 @@ public class SuperTester{
     System.out.println(SA2.lastIndexOf("cat")); // 0
     System.out.println(SA2.lastIndexOf("snake")); // -1
     SA2.add(0, "kangaroo");
-    System.out.println(SA2.toStringDebug()); //
+    System.out.println(SA2.toStringDebug()); // [kangaroo, cat, fish, dog, parrot, lizard, lizard, null, null]
     SA2.add(7, "lizard");
-    System.out.println(SA2.toStringDebug()); //
+    System.out.println(SA2.toStringDebug()); // [kangaroo, cat, fish, dog, parrot, lizard, lizard, lizard, null]
     SA2.add(2, "snake");
-    System.out.println(SA2.toStringDebug()); //
+    System.out.println(SA2.toStringDebug()); // [kangaroo, cat, snake, fish, dog, parrot, lizard, lizard, lizard]
     SA2.add(9, "snake");
-    System.out.println(SA2.toStringDebug()); //
-    System.out.println(SA2.size()); //
+    System.out.println(SA2.toStringDebug()); // [kangaroo, cat, snake, fish, dog, parrot, lizard, lizard, lizard, snake, null, null, null, null, null, null, null, null, null]
+    System.out.println(SA2.size()); // 10
     System.out.println(" ");
     System.out.println(" ");
     System.out.println(SA.toStringDebug()); // [1, 2, 3, NOPE!, null, null, null, null, null, null]

@@ -39,12 +39,6 @@ public class SuperArray{
     return str;
   }
 
-  public String[] getData(){
-    return data;  /* yes, yes, some of the stuff below I could
-    have done with just using data instead of this.getData();
-    just thought it to be a good practice to make this accessor. */
-  }
-
   public int size(){
     return size;
   }
@@ -65,18 +59,6 @@ public class SuperArray{
     size++;
     return true;
    }
-/*  public boolean add(String str){
-    for (int i = 0; i < (this.getData()).length; i++){
-      if (this.getData()[i] == null){
-        this.getData()[i] = str;
-        size++;
-        break;
-      }
-    }
-    return true;
-  }
-  */
-
 
   public String get(int index){
     if ((index < 0) || (index >= size)){
