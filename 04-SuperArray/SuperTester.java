@@ -23,15 +23,15 @@ public class SuperTester{
 
     System.out.println(" ");
 
-    for (int i = 0; i <= SA.size(); i++){
-      System.out.println(SA.get(i)); // hello \n wow \n it \n works! \n error in get: index out of range \n null
-    }
+    /* for (int i = 0; i <= SA.size(); i++){
+      System.out.println(SA.get(i)); // hello \n wow \n it \n works! *throws exception, stops program*
+    } */
 
     System.out.println(" ");
 
     for (int i = 0; i < SA.size(); i++){
       SA.set(i, "" + i); // *sets the elements to their index value*
-    } //AYUDA !!! later - hmmm its not printing the elements that were before the change, even if i add a print here
+    }
 
     System.out.println(" ");
 
@@ -69,7 +69,7 @@ public class SuperTester{
     SA2.add("lizard");
     SA2.add("lizard");
     System.out.println(SA2.toString()); //
-    System.out.println(SA2.toStringDebug()); // "
+    System.out.println(SA2.toStringDebug()); // 
     System.out.println(" ");
     System.out.println(SA2.indexOf("lizard")); // 4
     System.out.println(SA2.indexOf("parrot")); // 3

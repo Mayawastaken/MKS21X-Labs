@@ -8,6 +8,9 @@ public class SuperArray{
   }
 
   public SuperArray(int initialCapacity){
+    if (initialCapacity < 0){
+      throw new IllegalArgumentException("error in SuperArray: illegal argument");
+    }
     size = 0;
     data = new String[initialCapacity];
   }
@@ -77,16 +80,18 @@ public class SuperArray{
 
   public String get(int index){
     if ((index < 0) || (index >= size)){
-      System.out.println("error in get: index out of range");
-      return null;
+      throw new IndexOutOfBoundsException("error in get: index out of bounds");
+      //System.out.println("error in get: index out of range");
+      //return null;
     }
     return data[index];
   }
 
   public String set(int index, String element){
     if ((index < 0) || (index >= size)){
-      System.out.println("error in set: index out of range");
-      return null;
+      throw new IndexOutOfBoundsException("error in set: index out of bounds");
+      //System.out.println("error in set: index out of range");
+      //return null;
     }
     String buhbye = data[index];
     data[index] = element;
@@ -114,7 +119,8 @@ public class SuperArray{
 
   public void add(int index, String value){
     if (index < 0 || index > size) {
-      System.out.println("error in add: index out of range");
+      throw new IndexOutOfBoundsException("error in add (w/ index): index out of bounds");
+      //System.out.println("error in add: index out of range");
     }
     else{
       if (size == data.length){
@@ -130,8 +136,9 @@ public class SuperArray{
 
   public String remove(int index){
     if (index < 0 || index >= size) {
-      System.out.println("error in remove: index out of range");
-      return null;
+      throw new IndexOutOfBoundsException("error in remove: index out of bounds");
+      //System.out.println("error in remove: index out of range");
+      //return null;
     }
     else{
       String returning = data[index];
