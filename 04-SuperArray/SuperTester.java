@@ -86,5 +86,23 @@ public class SuperTester{
     System.out.println(SA2.toStringDebug()); //
     SA2.add(9, "snake");
     System.out.println(SA2.toStringDebug()); //
+    System.out.println(SA2.size()); //
+    System.out.println(" ");
+    System.out.println(" ");
+    System.out.println(SA.toStringDebug()); // [1, 2, 3, NOPE!, null, null, null, null, null, null]
+    System.out.println(SA.size()); // 4
+    SA.remove(2);
+    System.out.println(SA.toStringDebug()); // [1, 2, NOPE!, null, null, null, null, null, null, null]
+    System.out.println(SA.size()); // 3
+    SA.add(3, "YEP!");
+    SA.add(4, "MAYBE!");
+    System.out.println(SA.toStringDebug()); // [1, 2, NOPE!, YEP!, MAYBE!, null, null, null, null, null]
+    System.out.println(SA.size()); // 5
+    System.out.println(SA.remove("YEP!")); // true
+    SA.remove("YEP!");
+    System.out.println(SA.toStringDebug()); // [1, 2, NOPE!, MAYBE!, null, null, null, null, null, null]
+    System.out.println(SA.size()); // 4
+    System.out.println(SA.remove("YEP!")); // false
+
   }
 }

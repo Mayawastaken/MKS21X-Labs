@@ -128,4 +128,34 @@ public class SuperArray{
     }
   }
 
+  public String remove(int index){
+    if (index < 0 || index >= size) {
+      System.out.println("error in remove: index out of range");
+      return null;
+    }
+    else{
+      String returning = data[index];
+      for (int i = index; i < size - 1; i++){
+        data[i] = data[i+1];
+      }
+      data[size - 1] = null;
+      size--;
+      return returning;
+    }
+  }
+
+  public boolean remove(String target){
+    for (int i = 0; i < size; i++){
+      if (target.equals(data[i])){
+        for (int j = i; j < size - 1; j++){
+          data[j] = data[j+1];
+        }
+        data[size - 1] = null;
+        size--;
+        return true;
+      }
+    }
+    return false;
+  }
+
 }
