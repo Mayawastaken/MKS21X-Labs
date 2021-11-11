@@ -116,20 +116,16 @@ public class SuperArray{
     if (index < 0 || index > size) {
       System.out.println("error in add: index out of range");
     }
-    else if (size == data.length){
-      this.resize(); //gotta fix this to align w like the new data sljfslkdfj maybe put the chhecker before adding the last index
-    }
-    if (index >= 0 && index <= size){
-      String[] newData = new String[data.length];
-      for (int i = 0; i < index; i++){
-        newData[i] = data[i];
+    else{
+      if (size == data.length){
+        this.resize();
       }
-      newData[index] = value;
-      for (int i = index; i < size + 1; i++){
-        newData[i+1] = data[i];
+      for (int i = size; i > index; i--){
+        data[i] = data[i-1];
       }
-      data = newData;
+      data[index] = value;
       size++;
     }
   }
+
 }

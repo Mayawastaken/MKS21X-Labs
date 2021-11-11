@@ -84,6 +84,7 @@ public class SuperTester{
     System.out.println(SA2.toStringDebug()); //
     SA2.add(2, "snake");
     System.out.println(SA2.toStringDebug()); //
-
+    SA2.add(9, "snake");
+    System.out.println(SA2.toStringDebug()); //
   }
 }
