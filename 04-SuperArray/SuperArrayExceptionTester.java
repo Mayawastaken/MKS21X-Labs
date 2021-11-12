@@ -91,5 +91,25 @@ public class SuperArrayExceptionTester{
       System.out.println(testNum+". PASS "+testName);
     }
 
+    //Test8: remove -1
+    testNum++;
+    testName = "remove out of bounds -1";
+    try{
+        list.remove(-1);
+        System.out.println(testNum+". FAIL! No exception thrown "+testName);
+    }catch(IndexOutOfBoundsException e){
+      System.out.println(testNum+". PASS "+testName);
+    }
+
+    //Test9: remove size
+    testNum++;
+    testName = "remove out of bounds size";
+    try{
+        list.remove(list.size());
+        System.out.println(testNum+". FAIL! No exception thrown "+testName);
+    }catch(IndexOutOfBoundsException e){
+      System.out.println(testNum+". PASS "+testName);
+    }
+
   }
 }
