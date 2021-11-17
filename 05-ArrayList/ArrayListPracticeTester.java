@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class ArrayListPracticeTester{
   public static void main(String args[]){
-    ArrayList<String> AL1 = new ArrayList<String>(100);
+    ArrayList<String> AL1 = new ArrayList<String>(30000);
     ArrayList<String> AL2 = new ArrayList<String>(10);
     ArrayList<String> AL3 = new ArrayList<String>(3);
     ArrayList<String> AL4 = new ArrayList<String>(3);
@@ -9,7 +9,7 @@ public class ArrayListPracticeTester{
     ArrayList<String> AL6 = new ArrayList<String>(8);
     ArrayList<String> AL7 = new ArrayList<String>(0);
 
-    for (int i = 0; i < 100; i++){
+    for (int i = 0; i < 30000; i++){
       if (Math.random() < .1){
         AL1.add("");
       }
