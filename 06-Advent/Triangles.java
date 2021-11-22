@@ -26,5 +26,5 @@ public class Triangles{
     System.out.println("Part I number of triangles: " + part1("Triangles.txt"));
     }
 }
-
-//2d array transpose it (flip rows n columns) for part 2
+//every group of 9 its a loop so like x --> x+3 --> x+6 --> x+1 --> x+4 -->x+7 --> x+2 --> x+5 --> x+8 --> y = x+9 etc
+//2d array or arraylist transpose it (flip rows n columns) for part 2
