@@ -56,7 +56,18 @@ public class Triangles{
   }
 
   public static void main(String[] args){
-    System.out.println("Part I number of triangles: " + part1("Triangles.txt"));
-    System.out.println("Part II number of triangles: " + part2("Triangles.txt"));
+    try{
+      int part = Integer.parseInt(args[1]);
+      String fileWanted = args[0];
+      if (part == 1){
+        System.out.println("Part I number of triangles: " + part1("Triangles.txt"));
+      }
+      else{
+        System.out.println("Part II number of triangles: " + part2("Triangles.txt"));
+      }
+    } catch (ArrayIndexOutOfBoundsException ex){
+      System.out.println("no acceptable file and/or part given :(");
     }
+
+  }
 }
