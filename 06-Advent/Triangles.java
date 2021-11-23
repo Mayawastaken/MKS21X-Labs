@@ -22,9 +22,41 @@ public class Triangles{
     }
     return counterP1;
   }
+
+  public static int part2(String filename){
+    int counterP2 = 0;
+    try{
+      File file = new File(filename);
+      Scanner input = new Scanner(file);
+      while (input.hasNextInt()){
+        int a1 = input.nextInt();
+        int b1 = input.nextInt();
+        int c1 = input.nextInt();
+        int a2 = input.nextInt();
+        int b2 = input.nextInt();
+        int c2 = input.nextInt();
+        int a3 = input.nextInt();
+        int b3 = input.nextInt();
+        int c3 = input.nextInt();
+        if (((a1 + a2) > a3) && ((a1 + a3) > a2) && ((a3 + a2) > a1)){
+          counterP2++;
+        }
+        if (((b1 + b2) > b3) && ((b1 + b3) > b2) && ((b3 + b2) > b1)){
+          counterP2++;
+        }
+        if (((c1 + c2) > c3) && ((c1 + c3) > c2) && ((c3 + c2) > c1)){
+          counterP2++;
+        }
+      }
+      input.close();//releases the file from your program
+    } catch (FileNotFoundException ex) {
+            //File not found
+    }
+    return counterP2;
+  }
+
   public static void main(String[] args){
     System.out.println("Part I number of triangles: " + part1("Triangles.txt"));
+    System.out.println("Part II number of triangles: " + part2("Triangles.txt"));
     }
 }
-//every group of 9 its a loop so like x --> x+3 --> x+6 --> x+1 --> x+4 -->x+7 --> x+2 --> x+5 --> x+8 --> y = x+9 etc
-//2d array or arraylist transpose it (flip rows n columns) for part 2
