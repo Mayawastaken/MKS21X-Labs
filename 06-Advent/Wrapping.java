@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-public class Wrapper{
+public class Wrapping{
   public static int part1(String filename){
     try{
       int needed = 0;
