@@ -60,10 +60,10 @@ public class Triangles{
       int part = Integer.parseInt(args[1]);
       String fileWanted = args[0];
       if (part == 1){
-        System.out.println("Part I number of triangles: " + part1("Triangles.txt"));
+        System.out.println(part1(fileWanted));
       }
       else{
-        System.out.println("Part II number of triangles: " + part2("Triangles.txt"));
+        System.out.println(part2(fileWanted));
       }
     } catch (ArrayIndexOutOfBoundsException ex){
       System.out.println("no acceptable file and/or part given :(");
