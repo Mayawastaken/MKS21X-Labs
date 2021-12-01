@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class Sorts{
 
   /**Bubble sort of an int array.
@@ -5,7 +6,21 @@ public class Sorts{
   *@param data  the elements to be sorted.
   */
   public static void bubbleSort(int[] data){
-
+    int checker = 43110;
+    int wanted = 1;
+    for (int i = 0; i < data.length - wanted; i++){
+      checker = data[i];
+      for (int j = i + 1; j < data.length; j++){
+        if (checker > data[j]){
+          data[j-1] = data[j];
+          data[j] = checker;
+        }
+        else {
+          wanted++;
+          j += data.length;
+        }
+      }
+    }
   }
 
   public static void main(String[] args){
@@ -21,12 +36,10 @@ public class Sorts{
     bubbleSort(ary4);
     bubbleSort(ary5);
 
-    System.out.println(ary1.toString());
-    System.out.println(ary2.toString());
-    System.out.println(ary3.toString());
-    System.out.println(ary4.toString());
-    System.out.println(ary5.toString());
-
-
+    System.out.println(Arrays.toString(ary1));
+    System.out.println(Arrays.toString(ary2));
+    System.out.println(Arrays.toString(ary3));
+    System.out.println(Arrays.toString(ary4));
+    System.out.println(Arrays.toString(ary5));
   }
 }
