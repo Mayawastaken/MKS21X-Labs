@@ -16,12 +16,6 @@ public class BinarySearch{
         end = mid - 1;
       }
     }
-    // if ((start == end) && (start == 0) && (data[start] == target)){
-    //  return start;
-    // }
-    // if ((start == end) && (start == data.length-1) && (data[start] == target)){
-    //  return start;
-    // }
     return -1;
   }
 
