@@ -16,7 +16,7 @@ public class Sorts{
           data[j] = checker;
         }
         else {
-          wanted++;
+          wanted++; //wot is wanted why did i make this
           j += data.length;
         }
       }
