@@ -23,29 +23,29 @@ public class Sorts{
 
 
 
-  public static void bubbleSortAH(int[] data){
-    int checker = 43110;
-    int wanted = 1;
-    for (int i = 0; i < data.length - wanted; i++){
-      checker = data[0];
-      //System.out.println(checker);
-      for (int j = i + 1; j < data.length - wanted + 1; j++){
-        if (checker > data[j]){
-          data[j-1] = data[j];
-          data[j] = checker;
-          //System.out.println(checker);
-          System.out.println(Arrays.toString(data));
-        }
-        else {
-          checker = data[j];
-          System.out.println(checker);
-          //wanted++; //wot is wanted why did i make this
-          //j += data.length;
-        }
-      }
-      wanted++;
-    }
-  }
+  // public static void bubbleSortAH(int[] data){
+  //   int checker = 43110;
+  //   int wanted = 1;
+  //   for (int i = 0; i < data.length - wanted; i++){
+  //     checker = data[0];
+  //     //System.out.println(checker);
+  //     for (int j = i + 1; j < data.length - wanted + 1; j++){
+  //       if (checker > data[j]){
+  //         data[j-1] = data[j];
+  //         data[j] = checker;
+  //         //System.out.println(checker);
+  //         System.out.println(Arrays.toString(data));
+  //       }
+  //       else {
+  //         checker = data[j];
+  //         System.out.println(checker);
+  //         //wanted++; //wot is wanted why did i make this
+  //         //j += data.length;
+  //       }
+  //     }
+  //     wanted++;
+  //   }
+  // }
 
   public static void main(String[] args){
     int[] ary1 = {0,1,2,3,4,-1};
