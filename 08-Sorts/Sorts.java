@@ -49,7 +49,27 @@ public class Sorts{
     }
   }
 
+  public static void insertionSort(int[]data){ //wat even going on 0_0 LMAO will fix at home prob rewrite cant think <33
+    int maya = 1;
+    while (maya < data.length){
+      int j = maya;
+      for (int i = maya; i < data.length; i++){
+        for (int p = j-1; p > -1; p--){
+          if (data[maya] < data[p]){
+            j--;
+          }
+        }
+      System.out.println(j);
+      }
+      int storage = data[maya];
+      for (int m = j; m <= maya; m++){
+        data[m+1] = data[m];
 
+      }
+      data[j] = data[maya];
+      maya++;
+    }
+  }
 
 
   // public static void bubbleSortAH(int[] data){
@@ -114,6 +134,26 @@ public class Sorts{
     System.out.println(Arrays.toString(ary3S));
     System.out.println(Arrays.toString(ary4S));
     System.out.println(Arrays.toString(ary5S));
+
+    System.out.println(" ");
+
+    int[] ary1I = {0,1,2,3,4,-1};
+    int[] ary2I = {4,2,6,8,-12,34,2,3,-4};
+    int[] ary3I = {0,1,0,2,0,0};
+    int[] ary4I = {0,1,2,3,4};
+    int[] ary5I = {5,1,12,-5,16};
+
+    insertionSort(ary1I);
+    insertionSort(ary2I);
+    insertionSort(ary3I);
+    insertionSort(ary4I);
+    insertionSort(ary5I);
+
+    System.out.println(Arrays.toString(ary1I));
+    System.out.println(Arrays.toString(ary2I));
+    System.out.println(Arrays.toString(ary3I));
+    System.out.println(Arrays.toString(ary4I));
+    System.out.println(Arrays.toString(ary5I));
 
   }
 }
