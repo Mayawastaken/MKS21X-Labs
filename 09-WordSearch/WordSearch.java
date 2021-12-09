@@ -115,6 +115,51 @@ public class WordSearch{
       return true;
     }
 
+    /**Attempts to add a given word to the specified position of the WordGrid.
+     *The word is added from top left towards the bottom right, it must fit on the board,
+     *and must have a corresponding letter to match any letters that it overlaps.
+     *
+     *@param word is any text to be added to the word grid.
+     *@param row is the vertical locaiton of where you want the word to start.
+     *@param col is the horizontal location of where you want the word to start.
+     *@return true when the word is added successfully. When the word doesn't fit,
+     *or there are overlapping letters that do not match, then false is returned
+     *and the board is not modified.
+     */
+    public boolean addWordDiagonal(String word,int row, int col){
+      if (data.length == 0){
+        return false;
+      }
+      if (data[0].length == 0){
+        return false;
+      }
+      int numInDiag = Math.min((data.length - row), (data[0].length - col));
+      if (word.length() > numInDiag){ //takes adv. of rect.
+        return false;
+      }
+      int n = 0;
+      int i = row;
+      for (int j = col; j < col + word.length(); j++){
+        if ((data[i][j] != '_') && data[i][j] != word.charAt(n)){
+          return false;
+        }
+        i++;
+        n++;
+      }
+      i = row;
+      n = 0;
+      for (int j = col; j < col + word.length(); j++){
+        data[i][j] = word.charAt(n);
+        i++;
+        n++;
+      }
+      return true;
+    }
+
+    public boolean addWord(String word, int row, int col, int NS, int EW){ //-1. 0, 1
+      return true;
+    }
+
     public static void main(String[] args){
       WordSearch W1 = new WordSearch(3, 4);
       WordSearch W2 = new WordSearch(4, 3);
@@ -139,8 +184,9 @@ public class WordSearch{
       W3.addWordHorizontal("MYRIAD", 0, 3);
 
       System.out.println(W3.toString());
+      System.out.println(" ");
 
-      W3.addWordVertical("GRAPE", 5, 11); //fook
+      W3.addWordVertical("GRAPE", 5, 11);
 
       System.out.println(W3.toString());
       System.out.println(" ");
@@ -154,7 +200,23 @@ public class WordSearch{
 
       System.out.println(W3.toString());
       System.out.println(" ");
-      
-      //tested a lot of otu of bounds (esp on corners)/overlapping wrong words before this, seem ok
+
+      W3.addWordDiagonal("YUMMY", 0, 0);
+
+      System.out.println(W3.toString());
+      System.out.println(" ");
+
+      W3.addWordDiagonal("MYRIAD", 2, 1);
+
+      System.out.println(W3.toString());
+      System.out.println(" ");
+
+      W3.addWordDiagonal("GRAPE", 5, 7);
+
+      System.out.println(W3.toString());
+      System.out.println(" ");
+
+
+      //tested a lot of ouT of bounds (esp on corners)/overlapping wrong words before this, seem ok
     }
 }
