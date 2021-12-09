@@ -11,7 +11,7 @@ public class WordSearch{
     public WordSearch(int rows,int cols){
       data = new char[rows][cols];
       for (int i = 0; i < data.length; i++){
-        for (int j = 0; j < data[i].length; i++){
+        for (int j = 0; j < data[i].length; j++){
           data[i][j] = '_';
         }
       }
@@ -59,6 +59,24 @@ public class WordSearch{
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word,int row, int col){
+      int i = 0;
+      if (row > data.length - 1){
+        return false;
+      }
+      if (col + word.length() > data[0].length){ //takes adv. of rect.
+        return false;
+      }
+      for (int j = col; j < col + word.length(); j++){
+        if ((data[row][j] != '_') && data[row][j] != word.charAt(i)){
+          return false;
+        }
+        i++;
+      }
+      i = 0;
+      for (int m = col; m < col + word.length(); m++){
+        data[row][m] = word.charAt(i);
+        i++;
+      }
       return true;
     }
 
@@ -75,6 +93,68 @@ public class WordSearch{
      *and the board is NOT modified.
      */
     public boolean addWordVertical(String word,int row, int col){
+      int i = 0;
+      if (col > data[0].length - 1){ //takes adv. of rect.
+        return false;
+      }
+      if (row + word.length() > data.length){
+        return false;
+      }
+      // fix below
+      for (int j = row; j < row + word.length(); j++){
+        if ((data[j][col] != '_') && data[j][col] != word.charAt(i)){
+          return false;
+        }
+        i++;
+      }
+      i = 0;
+      for (int m = row; m < row + word.length(); m++){
+        data[m][col] = word.charAt(i);
+        i++;
+      }
       return true;
+    }
+
+    public static void main(String[] args){
+      WordSearch W1 = new WordSearch(3, 4);
+      WordSearch W2 = new WordSearch(4, 3);
+      WordSearch W3 = new WordSearch(10, 12);
+      System.out.println(W1.toString());
+      System.out.println(" ");
+      System.out.println(W2.toString());
+      System.out.println(" ");
+      System.out.println(W3.toString());
+      System.out.println(" ");
+
+      W3.addWordHorizontal("GRAPE", 9, 7);
+
+      System.out.println(W3.toString());
+      System.out.println(" ");
+
+      W3.addWordHorizontal("YUMMY", 0, 0);
+
+      System.out.println(W3.toString());
+      System.out.println(" ");
+
+      W3.addWordHorizontal("MYRIAD", 0, 3);
+
+      System.out.println(W3.toString());
+
+      W3.addWordVertical("GRAPE", 5, 11); //fook
+
+      System.out.println(W3.toString());
+      System.out.println(" ");
+
+      W3.addWordVertical("YUMMY", 0, 0);
+
+      System.out.println(W3.toString());
+      System.out.println(" ");
+
+      W3.addWordVertical("MYRIAD", 2, 1);
+
+      System.out.println(W3.toString());
+      System.out.println(" ");
+      
+      //tested a lot of otu of bounds (esp on corners)/overlapping wrong words before this, seem ok
     }
 }
