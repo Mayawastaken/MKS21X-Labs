@@ -156,7 +156,29 @@ public class WordSearch{
       return true;
     }
 
-    public boolean addWord(String word, int row, int col, int NS, int EW){ //-1. 0, 1
+    public boolean addWord(String word, int row, int col, int rowInc, int colInc){ //-1. 0, 1
+      if ((row + rowInc * (word.length()-1) > data.length) || (row + rowInc * (word.length()-1) < 0)){
+        return false;
+      }
+      if ((col + colInc * (word.length()-1) > data[0].length) || (col + colInc * (word.length()-1) < 0)){
+        return false;
+      }
+      int i = row;
+      int j = col;
+      for (int n = 0; n < word.length(); n++){
+        if ((data[i][j] != '_') && data[i][j] != word.charAt(n)){
+          return false;
+        }
+        i += rowInc;
+        j += colInc;
+      }
+      i = row;
+      j = col;
+      for (int n = 0; n < word.length(); n++){
+        data[i][j] = word.charAt(n);
+        i += rowInc;
+        j += colInc;
+      }
       return true;
     }
 
@@ -164,6 +186,8 @@ public class WordSearch{
       WordSearch W1 = new WordSearch(3, 4);
       WordSearch W2 = new WordSearch(4, 3);
       WordSearch W3 = new WordSearch(10, 12);
+      WordSearch W4 = new WordSearch(9, 11);
+
       System.out.println(W1.toString());
       System.out.println(" ");
       System.out.println(W2.toString());
@@ -216,6 +240,37 @@ public class WordSearch{
       System.out.println(W3.toString());
       System.out.println(" ");
 
+      W4.addWord("TEST", 4, 5, 0, 1);
+      System.out.println(W4.toString());
+      System.out.println(" ");
+      W4.addWord("TEST", 4, 5, 0, -1);
+      System.out.println(W4.toString());
+      System.out.println(" ");
+      W4.addWord("TEST", 4, 5, 1, 0);
+      System.out.println(W4.toString());
+      System.out.println(" ");
+      W4.addWord("TEST", 4, 5, -1, 0);
+      System.out.println(W4.toString());
+      System.out.println(" ");
+      W4.addWord("TEST", 4, 5, 1, 1);
+      System.out.println(W4.toString());
+      System.out.println(" ");
+      W4.addWord("TEST", 4, 5, 1, -1);
+      System.out.println(W4.toString());
+      System.out.println(" ");
+      W4.addWord("TEST", 4, 5, -1, 1);
+      System.out.println(W4.toString());
+      System.out.println(" ");
+      W4.addWord("TEST", 4, 5, -1, -1);
+      System.out.println(W4.toString());
+      System.out.println(" ");
+
+      W4.addWord("TEST", 5, 5, -1, -1); //nothing happens good
+      System.out.println(W4.toString());
+      System.out.println(" ");
+      W4.addWord("TEST", 8, 8, -1, -1); //nothing happens good
+      System.out.println(W4.toString());
+      System.out.println(" ");
 
       //tested a lot of ouT of bounds (esp on corners)/overlapping wrong words before this, seem ok
     }
