@@ -27,6 +27,22 @@ public class WordSearch{
     public WordSearch(int rows, int cols, String fileName){
       this(rows, cols);
       wordsAdded = new ArrayList<String>();
+      Random rng = new Random();
+      seed = rng.nextInt();
+      randgen = new Random(seed);
+      try{
+        File file = new File(fileName);
+        Scanner input = new Scanner(file);
+        this.addAllWords(fileName); //this. or? yo im so lost
+      } catch (FileNotFoundException ex) {
+        System.out.println("ayo your file isn't working D:");
+      }
+    }
+
+    public WordSearch(int rows, int cols, String fileName, int seed){
+      this(rows, cols);
+      wordsAdded = new ArrayList<String>();
+      randgen = new Random(seed);
       try{
         File file = new File(fileName);
         Scanner input = new Scanner(file);
@@ -219,18 +235,24 @@ public class WordSearch{
           }
         }
         while (wordsToBeAdded.size() > 0){
-          int randElement = (int)(Math.random()*(wordsToBeAdded.size()));
+          //double nextRand = randgen.nextDouble();
+          int randElement = (int)(randgen.nextDouble()*(wordsToBeAdded.size()));
           String current = wordsToBeAdded.get(randElement);
+          // System.out.println("nextRand: " + nextRand);
+          // System.out.println("randElement: " + randElement);
+          // for(String x:wordsToBeAdded) {
+          //     System.out.println(x);
+          // }
           int i = 0;
           while (i < 5){ //try 5 times then bad word
-            int dirNS = (int)(Math.random()*(3))-1;
-            int dirEW = (int)(Math.random()*(3))-1;
-            int startR = (int)(Math.random()*((data.length)));
-            int startC = (int)(Math.random()*((data[0].length)));
-            System.out.println(this.toString());
-            System.out.println(" ");
-            System.out.println("current: " + current);
-            System.out.println("dirNS: " + dirNS + "\n" + "dirEW: " + dirEW + "\n" + "startR: " + startR + "\n" + "startC: " + startC + "\n");
+            int dirNS = (int)(randgen.nextDouble()*(3))-1;
+            int dirEW = (int)(randgen.nextDouble()*(3))-1;
+            int startR = (int)(randgen.nextDouble()*((data.length)));
+            int startC = (int)(randgen.nextDouble()*((data[0].length)));
+            // System.out.println(this.toString());
+            // System.out.println(" ");
+            // System.out.println("current: " + current);
+            // System.out.println("dirNS: " + dirNS + "\n" + "dirEW: " + dirEW + "\n" + "startR: " + startR + "\n" + "startC: " + startC + "\n");
             boolean addWordYes = this.addWord(current, startR, startC, dirNS, dirEW);
             if (addWordYes){ //is this repeating the this.addword um idk
               int r = startR;
@@ -265,7 +287,8 @@ public class WordSearch{
       //WordSearch W5 = new WordSearch(3, 4, "WordSearch1.txt");
       //WordSearch W6 = new WordSearch(4, 3, "WordSearch1.txt");
       //WordSearch W7 = new WordSearch(10, 12, "WordSearch1.txt");
-      WordSearch W8 = new WordSearch(9, 11, "WordSearch1.txt");
+      //WordSearch W8 = new WordSearch(9, 11, "WordSearch1.txt");
+      WordSearch W9 = new WordSearch(9, 11, "WordSearch1.txt", 4);
 
       // System.out.println(W1.toString());
       // System.out.println(" ");
@@ -361,7 +384,10 @@ public class WordSearch{
       // System.out.println(" ");
       // System.out.println(" ");
 
-      System.out.println(W8.toString());
+      //System.out.println(W8.toString());
+      //System.out.println("DONE W8");
+      System.out.println(W9.toString());
+
       //tested a lot of ouT of bounds (esp on corners)/overlapping wrong words before this, seem ok
     }
 }
