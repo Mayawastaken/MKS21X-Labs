@@ -25,11 +25,14 @@ public class WordSearch{
     }
 
     public WordSearch(int rows, int cols, String fileName){
+      this(rows, cols);
+      wordsAdded = new ArrayList<String>();
       try{
         File file = new File(fileName);
         Scanner input = new Scanner(file);
+        this.addAllWords(fileName); //this. or? yo im so lost
       } catch (FileNotFoundException ex) {
-
+        System.out.println("ayo your file isn't working D:");
       }
     }
 
@@ -173,13 +176,16 @@ public class WordSearch{
    //  }
 
     public boolean addWord(String word, int row, int col, int rowInc, int colInc){ //-1. 0, 1
+      if (rowInc == 0 && colInc == 0){
+        return false;
+      }
       if (row > data.length - 1 || row < 0 || col > data[0].length - 1 || col < 0){ //assuming >= 1 row in data
         return false;
       }
-      if ((row + rowInc * (word.length()-1) > data.length) || (row + rowInc * (word.length()-1) < 0)){
+      if ((row + rowInc * (word.length()-1) > data.length-1) || (row + rowInc * (word.length()-1) < 0)){
         return false;
       }
-      if ((col + colInc * (word.length()-1) > data[0].length) || (col + colInc * (word.length()-1) < 0)){
+      if ((col + colInc * (word.length()-1) > data[0].length-1) || (col + colInc * (word.length()-1) < 0)){
         return false;
       }
       int i = row;
@@ -201,37 +207,72 @@ public class WordSearch{
       return true;
     }
 
-    public boolean addAllWords(String fileName){
+    public void addAllWords(String fileName){
+      ArrayList<String> wordsToBeAdded = new ArrayList<String>();
       try{
         File file = new File(fileName);
         Scanner input = new Scanner(file);
         while (input.hasNextLine()){
           String current = input.nextLine();
-          int dirNS = (int)(Math.random()*(1-(-1)+1))+(-1);
-          int dirEW = (int)(Math.random()*(1-(-1)+1))+(-1);
-          int startR = (int)(Math.random()*((data.length-1)-0+1))+0;
-          int startC = (int)(Math.random()*((data[0].length-1)-0+1))+0;
-          //addWord(current,)
-          // if add word returns falase, u dont add current to array list else do woohoo
+          if (current != null){
+            wordsToBeAdded.add(current);
+          }
+        }
+        while (wordsToBeAdded.size() > 0){
+          int randElement = (int)(Math.random()*(wordsToBeAdded.size()));
+          String current = wordsToBeAdded.get(randElement);
+          int i = 0;
+          while (i < 5){ //try 5 times then bad word
+            int dirNS = (int)(Math.random()*(3))-1;
+            int dirEW = (int)(Math.random()*(3))-1;
+            int startR = (int)(Math.random()*((data.length)));
+            int startC = (int)(Math.random()*((data[0].length)));
+            System.out.println(this.toString());
+            System.out.println(" ");
+            System.out.println("current: " + current);
+            System.out.println("dirNS: " + dirNS + "\n" + "dirEW: " + dirEW + "\n" + "startR: " + startR + "\n" + "startC: " + startC + "\n");
+            boolean addWordYes = this.addWord(current, startR, startC, dirNS, dirEW);
+            if (addWordYes){ //is this repeating the this.addword um idk
+              int r = startR;
+              int c = startC;
+              for (int n = 0; n < current.length(); n++){
+                data[r][c] = current.charAt(n);
+                r += dirNS;
+                c += dirEW;
+              }
+              wordsAdded.add(current);
+              i += 5;
+              wordsToBeAdded.remove(randElement);
+            }
+            else{
+              i++;
+              if (i == 5){
+                wordsToBeAdded.remove(randElement);
+              }
+            }
+          }
         }
       } catch (FileNotFoundException ex) {
-
+        System.out.println("ayo your file isn't working D:");
       }
-      return true;
     }
 
     public static void main(String[] args){
-      WordSearch W1 = new WordSearch(3, 4);
-      WordSearch W2 = new WordSearch(4, 3);
-      WordSearch W3 = new WordSearch(10, 12);
-      WordSearch W4 = new WordSearch(9, 11);
+      // WordSearch W1 = new WordSearch(3, 4);
+      // WordSearch W2 = new WordSearch(4, 3);
+      // WordSearch W3 = new WordSearch(10, 12);
+      // WordSearch W4 = new WordSearch(9, 11);
+      //WordSearch W5 = new WordSearch(3, 4, "WordSearch1.txt");
+      //WordSearch W6 = new WordSearch(4, 3, "WordSearch1.txt");
+      //WordSearch W7 = new WordSearch(10, 12, "WordSearch1.txt");
+      WordSearch W8 = new WordSearch(9, 11, "WordSearch1.txt");
 
-      System.out.println(W1.toString());
-      System.out.println(" ");
-      System.out.println(W2.toString());
-      System.out.println(" ");
-      System.out.println(W3.toString());
-      System.out.println(" ");
+      // System.out.println(W1.toString());
+      // System.out.println(" ");
+      // System.out.println(W2.toString());
+      // System.out.println(" ");
+      // System.out.println(W3.toString());
+      // System.out.println(" ");
 
       // W3.addWordHorizontal("GRAPE", 9, 7);
       //
@@ -278,48 +319,49 @@ public class WordSearch{
       // System.out.println(W3.toString());
       // System.out.println(" ");
 
-      W4.addWord("TEST", 4, 5, 0, 1);
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("TEST", 4, 5, 0, -1);
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("TEST", 4, 5, 1, 0);
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("TEST", 4, 5, -1, 0);
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("TEST", 4, 5, 1, 1);
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("TEST", 4, 5, 1, -1);
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("TEST", 4, 5, -1, 1);
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("TEST", 4, 5, -1, -1);
-      System.out.println(W4.toString());
-      System.out.println(" ");
+      // W4.addWord("TEST", 4, 5, 0, 1);
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("TEST", 4, 5, 0, -1);
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("TEST", 4, 5, 1, 0);
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("TEST", 4, 5, -1, 0);
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("TEST", 4, 5, 1, 1);
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("TEST", 4, 5, 1, -1);
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("TEST", 4, 5, -1, 1);
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("TEST", 4, 5, -1, -1);
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      //
+      // W4.addWord("TEST", 5, 5, -1, -1); //nothing happens good
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("MAYA", 8, 11, -1, -1); //nothing happens good
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("MAYA", 9, 10, -1, -1); //nothing happens good
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("MAYA", 8, 10, -1, -1);
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // W4.addWord("MAAM", 8, 7, 0, 1);
+      // System.out.println(W4.toString());
+      // System.out.println(" ");
+      // System.out.println(" ");
 
-      W4.addWord("TEST", 5, 5, -1, -1); //nothing happens good
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("MAYA", 8, 11, -1, -1); //nothing happens good
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("MAYA", 9, 10, -1, -1); //nothing happens good
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("MAYA", 8, 10, -1, -1);
-      System.out.println(W4.toString());
-      System.out.println(" ");
-      W4.addWord("MAAM", 8, 7, 0, 1);
-      System.out.println(W4.toString());
-      System.out.println(" ");
-
-
+      System.out.println(W8.toString());
       //tested a lot of ouT of bounds (esp on corners)/overlapping wrong words before this, seem ok
     }
 }
