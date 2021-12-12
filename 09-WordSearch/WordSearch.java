@@ -41,6 +41,7 @@ public class WordSearch{
 
     public WordSearch(int rows, int cols, String fileName, int seed){
       this(rows, cols);
+      this.seed = seed;
       wordsAdded = new ArrayList<String>();
       randgen = new Random(seed);
       try{
@@ -78,7 +79,9 @@ public class WordSearch{
           crossWord += "\n";
         }
       }
-      return crossWord;
+      String wordsToPrint = "\n Words: " + String.join(", ", wordsAdded);
+      String seedToPrint = "\n seed: " + seed;
+      return crossWord + wordsToPrint + seedToPrint;
     }
 
 
@@ -244,7 +247,7 @@ public class WordSearch{
           //     System.out.println(x);
           // }
           int i = 0;
-          while (i < 5){ //try 5 times then bad word
+          while (i < 100){ //try 100 times then bad word
             int dirNS = (int)(randgen.nextDouble()*(3))-1;
             int dirEW = (int)(randgen.nextDouble()*(3))-1;
             int startR = (int)(randgen.nextDouble()*((data.length)));
@@ -263,12 +266,12 @@ public class WordSearch{
                 c += dirEW;
               }
               wordsAdded.add(current);
-              i += 5;
+              i += 100;
               wordsToBeAdded.remove(randElement);
             }
             else{
               i++;
-              if (i == 5){
+              if (i == 100){
                 wordsToBeAdded.remove(randElement);
               }
             }
@@ -288,7 +291,7 @@ public class WordSearch{
       //WordSearch W6 = new WordSearch(4, 3, "WordSearch1.txt");
       //WordSearch W7 = new WordSearch(10, 12, "WordSearch1.txt");
       //WordSearch W8 = new WordSearch(9, 11, "WordSearch1.txt");
-      WordSearch W9 = new WordSearch(9, 11, "WordSearch1.txt", 4);
+      WordSearch W9 = new WordSearch(9, 11, "WordSearch1.txt", 48);
 
       // System.out.println(W1.toString());
       // System.out.println(" ");
