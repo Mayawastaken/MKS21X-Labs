@@ -63,6 +63,8 @@ public class WordSearch{
     for (int i = 0; i < grid.length; i++){
       for (int j = 0; j < grid[0].length; j++){
         if (grid[i][j] == '_'){
+          int randLetter = rng.nextInt(26) + 65;
+          grid[i][j] = (char)(randLetter);
           //do thge rng letters from 1-26 so like rng.nextint(26) + 1
         }
       }
@@ -160,9 +162,26 @@ public class WordSearch{
     return ans;
   }
 
-  public static void main(String[] args){
-
-
-
+  public static void main(String[] args){ //fix its pritning twice um
+    try{
+      WordSearch testYay;
+      int rowNum = Integer.parseInt(args[0]);
+      int colNum = Integer.parseInt(args[1]);
+      String fileWanted = args[2];
+      int mode = Integer.parseInt(args[3]);
+      if (args.length == 5){
+        int seedGiven = Integer.parseInt(args[4]);
+        testYay = new WordSearch(rowNum, colNum, fileWanted, seedGiven);
+      }
+      else{
+        testYay = new WordSearch(rowNum, colNum, fileWanted);
+      }
+      if (mode == 0){
+        testYay.fillInRandomLetters();
+      }
+      System.out.println(testYay.toString());
+    } catch (ArrayIndexOutOfBoundsException ex){
+      System.out.println("bad args :(");
+    }
   }
 }
