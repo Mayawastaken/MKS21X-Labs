@@ -45,7 +45,7 @@ public class WordSearch{
             r += dirNS;
             c += dirEW;
           }
-          wordsAdded.add(current);
+          //wordsAdded.add(current);
           i += 100;
           wordsToBeAdded.remove(randElement);
         }
