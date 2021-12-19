@@ -1,10 +1,10 @@
 import java.util.ArrayList;
-public class NoNullTester{
+public class OrderedTester{
   public static void main(String[] args){
-    NoNullArrayList<String> S1 = new NoNullArrayList<String>();
-    NoNullArrayList<String> S2 = new NoNullArrayList<String>(5);
-    NoNullArrayList<Integer> I1 = new NoNullArrayList<Integer>(5);
-    NoNullArrayList<Integer> I2 = new NoNullArrayList<Integer>();
+    OrderedArrayList<String> S1 = new OrderedArrayList<String>();
+    OrderedArrayList<String> S2 = new OrderedArrayList<String>(5);
+    OrderedArrayList<Integer> I1 = new OrderedArrayList<Integer>(5);
+    OrderedArrayList<Integer> I2 = new OrderedArrayList<Integer>();
 
     System.out.println(S1.toString());
     System.out.println(S2.toString());
@@ -24,12 +24,15 @@ public class NoNullTester{
     System.out.println(I1.toString());
 
     S1.add(2, "RAWR");
+    S1.add(2, "rawr");
     I1.add(0, 0);
 
     System.out.println(S1.toString());
     System.out.println(I1.toString());
 
-    S1.set(2, "not RAWR");
+    S1.set(4, "not RAWR");
+    //S1.set(14, null);
+    //S1.set(4, null);
     I1.set(0, 1000);
 
     System.out.println(S1.toString());

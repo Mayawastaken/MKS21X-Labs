@@ -5,7 +5,7 @@ public class NoNullArrayList<T> extends ArrayList<T> {
     super();
   }
 
-  public NoNullArrayList(int  startingCapacity){
+  public NoNullArrayList(int startingCapacity){
     super(startingCapacity);
   }
 
@@ -14,7 +14,7 @@ public class NoNullArrayList<T> extends ArrayList<T> {
       super.add(index, element);
     }
     else{
-      throw new IllegalArgumentException("null given in set");
+      throw new IllegalArgumentException("null given in add with index and element");
     }
   }
 
@@ -24,15 +24,15 @@ public class NoNullArrayList<T> extends ArrayList<T> {
       return super.add(element);
     }
     else{
-      throw new IllegalArgumentException("null given in set");
+      throw new IllegalArgumentException("null given in add with element");
     }
   }
 
 
   //wuhoh well um imma try to fix at  home n add constructors <3
-  public T set(int index, T str) throws IllegalArgumentException{
-    if (!(str == null)){
-      return super.set(index, str);
+  public T set(int index, T element) throws IllegalArgumentException{
+    if (!(element == null)){
+      return super.set(index, element);
     }
     else{
       throw new IllegalArgumentException("null given in set");
