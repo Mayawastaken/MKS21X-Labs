@@ -6,16 +6,19 @@ public class Wizard extends Adventurer{
   public Wizard(){
     super();
     this.fireballLevel = 1;
+    this.allure = "Come closer, I won't burn...";
   }
 
   public Wizard(String name){
     super(name);
     this.fireballLevel = 1;
+    this.allure = "Come closer, I won't burn...";
   }
 
   public Wizard(String name, int hp){
     super(name, hp);
     this.fireballLevel = 1;
+    this.allure = "Come closer, I won't burn...";
 
   }
 
@@ -32,13 +35,25 @@ public class Wizard extends Adventurer{
     this.fireballLevel = fireballLevel;
   }
 
-  publics void attack(Damageable other){
-    int damage = this.fireballLevel * 10;
+  public void attack(Damageable other){
+    int damage = (int)(Math.random()*8)+1;
     other.applyDamage(damage);
+    this.fireballLevel++;
+    System.out.println(this + " inflicted the wrath of the Devil on " + other + " for " + damage + " fire damage!");
   }
 
   public void specialAttack(Damageable other){
-
+    if(this.fireballLevel > 5){
+      int damage = (int)(Math.random()*8)+8;
+      other.applyDamage(damage);
+      System.out.print(this + " reassures " +  other + ", '" + this.allure + "', fooling " + other + "! ");
+      System.out.println(this + " allures " + other + " with the power of the Underworld, inflicting " + damage + " ultrafire damage!");
+      this.fireballLevel -= 5;
+    }
+    else{
+      System.out.println("Thy fireball too weak, I'm afraid...");
+      attack(other);
+    }
   }
 
 }
