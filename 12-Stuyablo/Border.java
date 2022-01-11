@@ -18,7 +18,21 @@ public class Border{
       System.out.print(Text.colorize("*",Text.MAGENTA));
       Text.go(i,1);
     }
+
+    int[] ary = new int[4];
+    for (int i = 0; i < ary.length; i++){
+      ary[i] = (int)(Math.random() * 100);
+      Text.go(2, i*20 + 10); //div 80 - 2 evenly? idk uh
+      if (ary[i] < 25){
+        System.out.print(Text.colorize("" + ary[i], Text.RED));
+      }
+      else if (ary[i] > 75){
+        System.out.print(Text.colorize("" + ary[i], Text.GREEN));
+      }
+      else{
+        System.out.print(Text.colorize("" + ary[i], Text.WHITE));
+      }
+    }
     Text.go(31,1); //get terminal back down
   }
-
 }
