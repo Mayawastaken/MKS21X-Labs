@@ -1,5 +1,5 @@
 public class Border{
-  public static void main(String[] args){
+  public static void makeBorder(){
     Text.hideCursor();
     Text.clear();
     Text.go(1,1);
@@ -21,8 +21,8 @@ public class Border{
 
     int[] ary = new int[4];
     for (int i = 0; i < ary.length; i++){
-      ary[i] = (int)(Math.random() * 100);
-      Text.go(2, i*20 + 10); //div 80 - 2 evenly? idk uh
+      ary[i] = (int)(Math.random() * 100); //use seed ahahaha aslfjkdsflkj
+      Text.go(2, (i+1)*(80/5)); //div 80 - 2 evenly? idk uh
       if (ary[i] < 25){
         System.out.print(Text.colorize("" + ary[i], Text.RED));
       }
@@ -35,4 +35,8 @@ public class Border{
     }
     Text.go(31,1); //get terminal back down
   }
+
+  // public static void main(String[] args){
+  //
+  // }
 }
