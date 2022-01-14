@@ -66,7 +66,7 @@ public class StuyabloGame{
 
     //Things to attack:
     //Make an ArrayList of Adventurers and add 1 enemy to it.
-    ArrayList<Adventurer>enemies = new ArrayList<>();
+    ArrayList<Adventurer> enemies = new ArrayList<>();
     enemies.add(new Wizard("Apollo"));
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
@@ -75,7 +75,7 @@ public class StuyabloGame{
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 3 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
-    party.add(new Warrior("Hades"));
+    party.add(new Wizard("Hades"));
     party.add(new Warrior("Persephone"));
     party.add(new Warrior("Hermes"));
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -127,6 +127,12 @@ public class StuyabloGame{
         //this block ignores user input!
         //display enemy attack except on turn 0.
         if(turn > 0){
+          if (Math.random()<.8){
+            enemies.get(0).attack(party.get((int)(Math.random()*3)));
+          }
+          else{
+            enemies.get(0).specialAttack(party.get((int)(Math.random()*3)));
+          }
           //Enemy action choices go here!
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
