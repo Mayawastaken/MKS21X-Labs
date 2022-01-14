@@ -1,19 +1,23 @@
 public class Warrior extends Adventurer {
     private int  rage;
     private String warcry;
+    private int rageMax;
 
     public Warrior(){
 	     this("Magnus");
+       this.rageMax = 200;
     }
 
     public Warrior(String name){
 	     this(name,"Valhalllaaaaa!!", 18);
+       this.rageMax = 200;
     }
 
     public Warrior(String name, String warcry, int rage){
       super(name,30+(int)(Math.random()*10));
       setWarcry(warcry);
       setRage(rage);
+      this.rageMax = 200;
     }
 
     //warrior methods
@@ -38,6 +42,16 @@ public class Warrior extends Adventurer {
 			    System.out.println("Not enough rage! ");
           attack(other);
 	    }
+    }
+
+    public String getSpecialName(){
+      return "Rage";
+    }
+    public int getSpecialMax(){
+      return rageMax;
+    }
+    public int getSpecial(){
+      return rage;
     }
 
     //get methods

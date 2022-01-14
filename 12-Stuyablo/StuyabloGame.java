@@ -13,10 +13,13 @@ public class StuyabloGame{
   //Should include Name and HP on 2 separate lines. (more to be added later)
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
     for (int i = 0; i < party.size(); i++){
-      Text.go(2, (i)*(WIDTH/party.size()));
+      Text.go(2, (i)*(WIDTH/party.size())+1);
       System.out.print(party.get(i));
-      Text.go(3, (i)*(WIDTH/party.size()));
-      System.out.print(party.get(i).getHP());
+      Text.go(3, (i)*(WIDTH/party.size())+1);
+      System.out.print("HP: " + party.get(i).getHP());
+      Text.go(4, (i)*(WIDTH/party.size())+1);
+      System.out.print(party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
+      // + party.get value )
     }
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
@@ -100,12 +103,14 @@ public class StuyabloGame{
       if(partyTurn){
         //Process user input:
         if(input.equals("attack")){
+          Text.go(10,2);
           party.get(whichPlayer).attack(enemies.get(0));
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.equals("special")){
+          Text.go(10,2);
           party.get(whichPlayer).specialAttack(enemies.get(0));
 
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -128,9 +133,11 @@ public class StuyabloGame{
         //display enemy attack except on turn 0.
         if(turn > 0){
           if (Math.random()<.8){
+            Text.go(10,2);
             enemies.get(0).attack(party.get((int)(Math.random()*3)));
           }
           else{
+            Text.go(10,2);
             enemies.get(0).specialAttack(party.get((int)(Math.random()*3)));
           }
           //Enemy action choices go here!
