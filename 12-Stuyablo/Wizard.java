@@ -44,24 +44,23 @@ public class Wizard extends Adventurer{
     setmaxHP(120);
   }
 
-  public void attack(Damageable other){
+  public String attack(Damageable other){
     int damage = (int)(Math.random()*8)+1;
     other.applyDamage(damage);
     this.fireballLevel++;
-    System.out.println(this + " inflicted the wrath of the Devil on " + other + " for " + damage + " fire damage!");
+    return (this + " inflicted the wrath of the Devil on " + other + " for " + damage + " fire damage!");
   }
 
-  public void specialAttack(Damageable other){
+  public String specialAttack(Damageable other){
     if(this.fireballLevel > 5){
       int damage = (int)(Math.random()*8)+8;
       other.applyDamage(damage);
-      System.out.print(this + " reassures " +  other + ", '" + this.allure + "', fooling " + other + "! ");
-      System.out.println(this + " allures " + other + " with the power of the Underworld, inflicting " + damage + " ultrafire damage!");
       this.fireballLevel -= 5;
+      return (this + " reassures " +  other + ", '" + this.allure + "', fooling " + other + "! " + this + " allures " + other + " with the power of the Underworld, inflicting " + damage + " ultrafire damage!");
     }
     else{
-      System.out.println("Thy fireball too weak, I'm afraid...");
-      attack(other);
+      String toReturn = "Thy fireball too weak, I'm afraid...\n" + attack(other);
+      return toReturn;
     }
   }
 

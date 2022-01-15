@@ -12,8 +12,8 @@ public abstract class Adventurer implements Damageable{
     }
 
     //Abstract methods are meant to be implemented in child classes.
-    public abstract void attack(Damageable other);
-    public abstract void specialAttack(Damageable other);
+    public abstract String attack(Damageable other);
+    public abstract String specialAttack(Damageable other);
     //return the name of the special resource the class uses
     public abstract String getSpecialName();
     //return the value of the current and maximum special resource
@@ -25,7 +25,7 @@ public abstract class Adventurer implements Damageable{
     }
 
     public Adventurer(String name){
-  	   this(name, 10);
+  	   this(name, 105);
     }
 
     public Adventurer(String name, int hp){

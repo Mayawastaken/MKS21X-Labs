@@ -15,11 +15,19 @@ public class StuyabloGame{
     for (int i = 0; i < party.size(); i++){
       Text.go(2, (i)*(WIDTH/party.size())+1);
       System.out.print(party.get(i));
-      Text.go(4, (i)*(WIDTH/party.size())+1);
-      System.out.print("HP: " + party.get(i).getHP());
       Text.go(3, (i)*(WIDTH/party.size())+1);
       System.out.print(party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
-      // + party.get value )
+      Text.go(4, (i)*(WIDTH/party.size())+1);
+      System.out.print("HP: ");
+      if ((party.get(i).getHP()*1.0)/party.get(i).getmaxHP() > .75){
+        System.out.print(Text.colorize(party.get(i).getHP() + "/" + party.get(i).getmaxHP(), Text.GREEN));
+      }
+      else if ((party.get(i).getHP()*1.0)/party.get(i).getmaxHP() < .25){
+        System.out.print(Text.colorize(party.get(i).getHP() + "/" + party.get(i).getmaxHP(), Text.RED));
+      }
+      else{
+        System.out.print(party.get(i).getHP() + "/" + party.get(i).getmaxHP());
+      }
     }
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
@@ -104,14 +112,14 @@ public class StuyabloGame{
         //Process user input:
         if(input.equals("attack")){
           Text.go(10,2);
-          party.get(whichPlayer).attack(enemies.get(0));
+          System.out.print(party.get(whichPlayer).attack(enemies.get(0)));
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.equals("special")){
           Text.go(10,2);
-          party.get(whichPlayer).specialAttack(enemies.get(0));
+          System.out.print(party.get(whichPlayer).specialAttack(enemies.get(0)));
 
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
@@ -134,11 +142,11 @@ public class StuyabloGame{
         if(turn > 0){
           if (Math.random()<.8){
             Text.go(10,2);
-            enemies.get(0).attack(party.get((int)(Math.random()*3)));
+            System.out.print(enemies.get(0).attack(party.get((int)(Math.random()*3))));
           }
           else{
             Text.go(10,2);
-            enemies.get(0).specialAttack(party.get((int)(Math.random()*3)));
+            System.out.print(enemies.get(0).specialAttack(party.get((int)(Math.random()*3))));
           }
           //Enemy action choices go here!
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
