@@ -42,7 +42,7 @@ public class Warrior extends Adventurer {
             return (this + " unleashes his fury upon "
              + other + " for " + damage + " damage! "+warcry);
 	    }else{
-          String toReturn = "Not enough rage! \n" + attack(other);
+          String toReturn = "Not enough rage! \n" + Text.colorize("*",Text.MAGENTA) + attack(other);
           return toReturn;
 	    }
     }

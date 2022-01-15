@@ -13,11 +13,11 @@ public class StuyabloGame{
   //Should include Name and HP on 2 separate lines. (more to be added later)
   public static void drawParty(ArrayList<Adventurer> party,int startRow){
     for (int i = 0; i < party.size(); i++){
-      Text.go(2, (i)*(WIDTH/party.size())+1);
+      Text.go(startRow, (i)*((WIDTH-2)/party.size())+2);
       System.out.print(party.get(i));
-      Text.go(3, (i)*(WIDTH/party.size())+1);
+      Text.go(startRow+1, (i)*((WIDTH-2)/party.size())+2);
       System.out.print(party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
-      Text.go(4, (i)*(WIDTH/party.size())+1);
+      Text.go(startRow+2, (i)*((WIDTH-2)/party.size())+2);
       System.out.print("HP: ");
       if ((party.get(i).getHP()*1.0)/party.get(i).getmaxHP() > .75){
         System.out.print(Text.colorize(party.get(i).getHP() + "/" + party.get(i).getmaxHP(), Text.GREEN));
@@ -47,20 +47,17 @@ public class StuyabloGame{
     Text.hideCursor();
     Text.clear();
     Text.go(1,1);
-    for (int i = 1; i < 80; i++){
+    for (int i = 1; i < WIDTH+1; i++){
+      Text.go(1,i);
+      System.out.print(Text.colorize("*",Text.MAGENTA));
+      Text.go(HEIGHT,i);
       System.out.print(Text.colorize("*",Text.MAGENTA));
     }
-    for (int i = 1; i < 30; i++){ //um check if its 30x80 and not smth else0
-      System.out.print(Text.colorize("*",Text.MAGENTA));
-      Text.go(i,80);
-    }
-    for (int i = 80; i > 0; i--){ //um check if its 30x80 and not smth else0
-      System.out.print(Text.colorize("*",Text.MAGENTA));
-      Text.go(30,i);
-    }
-    for (int i = 30; i > 0; i--){ //um check if its 30x80 and not smth else0
-      System.out.print(Text.colorize("*",Text.MAGENTA));
+    for (int i = 2; i < HEIGHT; i++){
       Text.go(i,1);
+      System.out.print(Text.colorize("*",Text.MAGENTA));
+      Text.go(i,WIDTH);
+      System.out.print(Text.colorize("*",Text.MAGENTA));
     }
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE

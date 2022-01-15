@@ -59,7 +59,7 @@ public class Wizard extends Adventurer{
       return (this + " reassures " +  other + ", '" + this.allure + "', fooling " + other + "! " + this + " allures " + other + " with the power of the Underworld, inflicting " + damage + " ultrafire damage!");
     }
     else{
-      String toReturn = "Thy fireball too weak, I'm afraid...\n" + attack(other);
+      String toReturn = "Thy fireball too weak, I'm afraid...\n" + Text.colorize("*",Text.MAGENTA) + attack(other);
       return toReturn;
     }
   }
