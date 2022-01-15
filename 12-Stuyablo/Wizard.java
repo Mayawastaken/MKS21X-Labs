@@ -9,6 +9,7 @@ public class Wizard extends Adventurer{
     this.fireballLevel = 1;
     this.allure = "Come closer, I won't burn...";
     this.fireballMax = 50;
+    setmaxHP(120);
   }
 
   public Wizard(String name){
@@ -16,6 +17,7 @@ public class Wizard extends Adventurer{
     this.fireballLevel = 1;
     this.allure = "Come closer, I won't burn...";
     this.fireballMax = 50;
+    setmaxHP(120);
   }
 
   public Wizard(String name, int hp){
@@ -23,6 +25,7 @@ public class Wizard extends Adventurer{
     this.fireballLevel = 1;
     this.allure = "Come closer, I won't burn...";
     this.fireballMax = 50;
+    setmaxHP(120);
   }
 
   public Wizard(String name, int hp, String allure){
@@ -30,6 +33,7 @@ public class Wizard extends Adventurer{
     this.allure = allure;
     this.fireballLevel = 1;
     this.fireballMax = 50;
+    setmaxHP(120);
   }
 
   public Wizard(String name, int hp, String allure, int fireballLevel){
@@ -37,6 +41,7 @@ public class Wizard extends Adventurer{
     this.allure = allure;
     this.fireballLevel = fireballLevel;
     this.fireballMax = 50;
+    setmaxHP(120);
   }
 
   public void attack(Damageable other){

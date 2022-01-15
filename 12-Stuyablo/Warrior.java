@@ -6,11 +6,13 @@ public class Warrior extends Adventurer {
     public Warrior(){
 	     this("Magnus");
        this.rageMax = 200;
+       setmaxHP(150);
     }
 
     public Warrior(String name){
 	     this(name,"Valhalllaaaaa!!", 18);
        this.rageMax = 200;
+       setmaxHP(150);
     }
 
     public Warrior(String name, String warcry, int rage){
@@ -18,6 +20,7 @@ public class Warrior extends Adventurer {
       setWarcry(warcry);
       setRage(rage);
       this.rageMax = 200;
+      setmaxHP(150);
     }
 
     //warrior methods

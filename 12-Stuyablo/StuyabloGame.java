@@ -15,9 +15,9 @@ public class StuyabloGame{
     for (int i = 0; i < party.size(); i++){
       Text.go(2, (i)*(WIDTH/party.size())+1);
       System.out.print(party.get(i));
-      Text.go(3, (i)*(WIDTH/party.size())+1);
-      System.out.print("HP: " + party.get(i).getHP());
       Text.go(4, (i)*(WIDTH/party.size())+1);
+      System.out.print("HP: " + party.get(i).getHP());
+      Text.go(3, (i)*(WIDTH/party.size())+1);
       System.out.print(party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
       // + party.get value )
     }
